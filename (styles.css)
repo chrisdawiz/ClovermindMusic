@@ -1,0 +1,25 @@
+(styles.css)
+
+const gameContainer = document.querySelector('.game-container');
+const logo = document.querySelector('.logo');
+
+gameContainer.addEventListener('click', () => {
+    logo.style.transform = 'scale(1.5)';
+    setTimeout(() => {
+        logo.style.transform = 'scale(1)';
+        moveLogo();
+    }, 200);
+});
+
+function moveLogo() {
+    const maxX = gameContainer.clientWidth - logo.clientWidth;
+    const maxY = gameContainer.clientHeight - logo.clientHeight;
+
+    const newX = Math.random() * maxX;
+    const newY = Math.random() * maxY;
+
+    logo.style.left = `${newX}px`;
+    logo.style.top = `${newY}px`;
+}
+
+moveLogo();
